@@ -1,0 +1,506 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="packages\Microsoft.SqlServer.Types.160.1000.6\build\net462\Microsoft.SqlServer.Types.props" Condition="Exists('packages\Microsoft.SqlServer.Types.160.1000.6\build\net462\Microsoft.SqlServer.Types.props')" />
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{B3B8B354-BEE3-4FBB-B995-B4C122743307}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>StockManage</RootNamespace>
+    <AssemblyName>StockManage</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+    <NuGetPackageImportStamp>
+    </NuGetPackageImportStamp>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="Microsoft.ReportViewer.Common, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1537.0\lib\net40\Microsoft.ReportViewer.Common.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.DataVisualization, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1537.0\lib\net40\Microsoft.ReportViewer.DataVisualization.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.Design, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1537.0\lib\net40\Microsoft.ReportViewer.Design.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.ProcessingObjectModel, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1537.0\lib\net40\Microsoft.ReportViewer.ProcessingObjectModel.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.ReportViewer.WinForms, Version=15.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.ReportingServices.ReportViewerControl.Winforms.150.1537.0\lib\net40\Microsoft.ReportViewer.WinForms.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.SqlServer.Types, Version=14.0.0.0, Culture=neutral, PublicKeyToken=89845dcd8080cc91, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.SqlServer.Types.14.0.314.76\lib\net40\Microsoft.SqlServer.Types.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Configuration" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.DirectoryServices" />
+    <Reference Include="System.Web" />
+    <Reference Include="System.Web.Services" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="billbox.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="billbox.Designer.cs">
+      <DependentUpon>billbox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Billmanage.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Billmanage.Designer.cs">
+      <DependentUpon>Billmanage.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Controlpixbox.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="Controlpixbox.Designer.cs">
+      <DependentUpon>Controlpixbox.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DebitModel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DebitModel.Designer.cs">
+      <DependentUpon>DebitModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Debittable.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Debittable.Designer.cs">
+      <DependentUpon>Debittable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Login.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Login.Designer.cs">
+      <DependentUpon>Login.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MainForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="NorthwindEntities.cs" />
+    <Compile Include="ProductManag.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductManag.Designer.cs">
+      <DependentUpon>ProductManag.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ProductModule.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ProductModule.Designer.cs">
+      <DependentUpon>ProductModule.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="reportcry.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="reportcry.Designer.cs">
+      <DependentUpon>reportcry.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\BillReportForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Report\BillReportForm.Designer.cs">
+      <DependentUpon>BillReportForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Report\DataBill.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>DataBill.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="Report\market.cs" />
+    <Compile Include="SqlServerTypes\Loader.cs" />
+    <Compile Include="StockmanagDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>StockmanagDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="s_stockDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>s_stockDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="s_stockDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>s_stockDataSet1.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="s_stockDataSet10.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>s_stockDataSet10.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="s_stockDataSet11.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>s_stockDataSet11.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="s_stockDataSet12.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>s_stockDataSet12.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="s_stockDataSet2.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>s_stockDataSet2.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="s_stockDataSet3.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>s_stockDataSet3.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="s_stockDataSet4.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>s_stockDataSet4.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="s_stockDataSet5.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>s_stockDataSet5.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="s_stockDataSet61.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>s_stockDataSet61.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="s_stockDataSet7.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>s_stockDataSet7.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="s_stockDataSet8.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>s_stockDataSet8.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="s_stockDataSet9.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>s_stockDataSet9.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="UserModel.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UserModel.Designer.cs">
+      <DependentUpon>UserModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Users.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Users.Designer.cs">
+      <DependentUpon>Users.cs</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="billbox.resx">
+      <DependentUpon>billbox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Billmanage.resx">
+      <DependentUpon>Billmanage.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Controlpixbox.resx">
+      <DependentUpon>Controlpixbox.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DebitModel.resx">
+      <DependentUpon>DebitModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Debittable.resx">
+      <DependentUpon>Debittable.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Login.resx">
+      <DependentUpon>Login.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductManag.resx">
+      <DependentUpon>ProductManag.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ProductModule.resx">
+      <DependentUpon>ProductModule.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Report\Bill.rdlc" />
+    <EmbeddedResource Include="Report\BillReportForm.resx">
+      <DependentUpon>BillReportForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UserModel.resx">
+      <DependentUpon>UserModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Users.resx">
+      <DependentUpon>Users.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="Report\DataBill.xsc">
+      <DependentUpon>DataBill.xsd</DependentUpon>
+    </None>
+    <None Include="Report\DataBill.xsd">
+      <SubType>Designer</SubType>
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>DataBill.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Report\DataBill.xss">
+      <DependentUpon>DataBill.xsd</DependentUpon>
+    </None>
+    <None Include="StockmanagDataSet1.xsc">
+      <DependentUpon>StockmanagDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="StockmanagDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>StockmanagDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="StockmanagDataSet1.xss">
+      <DependentUpon>StockmanagDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="s_stockDataSet.xsc">
+      <DependentUpon>s_stockDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="s_stockDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>s_stockDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="s_stockDataSet.xss">
+      <DependentUpon>s_stockDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="s_stockDataSet1.xsc">
+      <DependentUpon>s_stockDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="s_stockDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>s_stockDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="s_stockDataSet1.xss">
+      <DependentUpon>s_stockDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="s_stockDataSet10.xsc">
+      <DependentUpon>s_stockDataSet10.xsd</DependentUpon>
+    </None>
+    <None Include="s_stockDataSet10.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>s_stockDataSet10.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="s_stockDataSet10.xss">
+      <DependentUpon>s_stockDataSet10.xsd</DependentUpon>
+    </None>
+    <None Include="s_stockDataSet11.xsc">
+      <DependentUpon>s_stockDataSet11.xsd</DependentUpon>
+    </None>
+    <None Include="s_stockDataSet11.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>s_stockDataSet11.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="s_stockDataSet11.xss">
+      <DependentUpon>s_stockDataSet11.xsd</DependentUpon>
+    </None>
+    <None Include="s_stockDataSet12.xsc">
+      <DependentUpon>s_stockDataSet12.xsd</DependentUpon>
+    </None>
+    <None Include="s_stockDataSet12.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>s_stockDataSet12.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="s_stockDataSet12.xss">
+      <DependentUpon>s_stockDataSet12.xsd</DependentUpon>
+    </None>
+    <None Include="s_stockDataSet2.xsc">
+      <DependentUpon>s_stockDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="s_stockDataSet2.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>s_stockDataSet2.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="s_stockDataSet2.xss">
+      <DependentUpon>s_stockDataSet2.xsd</DependentUpon>
+    </None>
+    <None Include="s_stockDataSet3.xsc">
+      <DependentUpon>s_stockDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="s_stockDataSet3.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>s_stockDataSet3.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="s_stockDataSet3.xss">
+      <DependentUpon>s_stockDataSet3.xsd</DependentUpon>
+    </None>
+    <None Include="s_stockDataSet4.xsc">
+      <DependentUpon>s_stockDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="s_stockDataSet4.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>s_stockDataSet4.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="s_stockDataSet4.xss">
+      <DependentUpon>s_stockDataSet4.xsd</DependentUpon>
+    </None>
+    <None Include="s_stockDataSet5.xsc">
+      <DependentUpon>s_stockDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="s_stockDataSet5.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>s_stockDataSet5.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="s_stockDataSet5.xss">
+      <DependentUpon>s_stockDataSet5.xsd</DependentUpon>
+    </None>
+    <None Include="s_stockDataSet61.xsc">
+      <DependentUpon>s_stockDataSet61.xsd</DependentUpon>
+    </None>
+    <None Include="s_stockDataSet61.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>s_stockDataSet61.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="s_stockDataSet61.xss">
+      <DependentUpon>s_stockDataSet61.xsd</DependentUpon>
+    </None>
+    <None Include="s_stockDataSet7.xsc">
+      <DependentUpon>s_stockDataSet7.xsd</DependentUpon>
+    </None>
+    <None Include="s_stockDataSet7.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>s_stockDataSet7.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="s_stockDataSet7.xss">
+      <DependentUpon>s_stockDataSet7.xsd</DependentUpon>
+    </None>
+    <None Include="s_stockDataSet8.xsc">
+      <DependentUpon>s_stockDataSet8.xsd</DependentUpon>
+    </None>
+    <None Include="s_stockDataSet8.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>s_stockDataSet8.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="s_stockDataSet8.xss">
+      <DependentUpon>s_stockDataSet8.xsd</DependentUpon>
+    </None>
+    <None Include="s_stockDataSet9.xsc">
+      <DependentUpon>s_stockDataSet9.xsd</DependentUpon>
+    </None>
+    <None Include="s_stockDataSet9.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>s_stockDataSet9.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="s_stockDataSet9.xss">
+      <DependentUpon>s_stockDataSet9.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 and x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="SqlServerTypes\readme.htm" />
+    <Content Include="SqlServerTypes\x64\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x64\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\msvcr120.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="SqlServerTypes\x86\SqlServerSpatial140.dll">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <Target Name="EnsureNuGetPackageBuildImports" BeforeTargets="PrepareForBuild">
+    <PropertyGroup>
+      <ErrorText>This project references NuGet package(s) that are missing on this computer. Use NuGet Package Restore to download them.  For more information, see http://go.microsoft.com/fwlink/?LinkID=322105. The missing file is {0}.</ErrorText>
+    </PropertyGroup>
+    <Error Condition="!Exists('packages\Microsoft.SqlServer.Types.160.1000.6\build\net462\Microsoft.SqlServer.Types.props')" Text="$([System.String]::Format('$(ErrorText)', 'packages\Microsoft.SqlServer.Types.160.1000.6\build\net462\Microsoft.SqlServer.Types.props'))" />
+  </Target>
+</Project>
